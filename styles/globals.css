@@ -2,32 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+nav {
+  @apply flex items-center justify-between py-5 uppercase font-bold px-[300px] bg-blue-500 text-white sticky top-0 z-[100];
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+nav ul {
+  @apply flex items-center justify-between gap-10;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+nav ul li {
+  @apply cursor-pointer hover:text-black duration-500;
+}
+label {
+  @apply text-gray-500 text-sm mb-2;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+input {
+  @apply border py-2 px-5 text-sm border-gray-500 rounded-md outline-none;
+}
+
+.category-nor {
+  @apply bg-white rounded-lg p-5 shadow-md flex flex-col items-center justify-center;
+}
+
+.hover-category {
+  @apply bg-blue-500 text-white rounded-lg p-5 shadow-md flex flex-col items-center justify-center;
+}
+.footer-container {
+  @apply flex justify-between items-center px-[300px] py-20;
+}
+
+footer .short-links {
+  @apply grid grid-cols-1 md:grid-cols-4 gap-10;
+}
+
+footer .short-links ul li {
+  @apply text-gray-500 cursor-pointer;
+}
+
+footer .short-links p {
+  @apply text-2xl font-bold mb-3 mt-0;
 }
