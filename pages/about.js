@@ -1,7 +1,9 @@
 /* eslint-disable react/no-unescaped-entities */
 import Layout from '@/components/Layout';
+import { useRouter } from 'next/router';
 
 export default function AboutPage() {
+  const router = useRouter();
   return (
     <Layout>
       <main>
@@ -31,7 +33,10 @@ export default function AboutPage() {
                 The point of using Lorem Ipsum is that it has a more-or-less.
               </p>
 
-              <button className="text-white mt-10 bg-blue-500 py-2 px-5 w-32 rounded-md shadow-md">
+              <button
+                className="text-white mt-10 bg-blue-500 py-2 px-5 w-32 rounded-md shadow-md"
+                onClick={() => router.push('/jobs')}
+              >
                 Find Job
               </button>
             </div>
@@ -39,7 +44,6 @@ export default function AboutPage() {
               <img
                 src="https://job-board.dexignzone.com/xhtml/images/our-work/pic1.jpg"
                 alt=""
-                srcset=""
               />
             </div>
           </div>

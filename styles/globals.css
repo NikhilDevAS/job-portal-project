@@ -14,10 +14,12 @@ nav ul li {
   @apply cursor-pointer hover:text-black duration-500;
 }
 label {
-  @apply text-gray-500 text-sm mb-2;
+  @apply text-gray-600 text-sm mb-2;
 }
 
-input {
+input,
+textarea,
+select {
   @apply border py-2 px-5 text-sm border-gray-500 rounded-md outline-none;
 }
 
@@ -42,4 +44,16 @@ footer .short-links ul li {
 
 footer .short-links p {
   @apply text-2xl font-bold mb-3 mt-0;
+}
+
+table {
+  @apply min-w-full leading-normal;
+}
+
+table th {
+  @apply px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider text-center;
+}
+
+table td {
+  @apply px-5 py-5 border-b border-gray-200 bg-white text-sm text-center;
 }

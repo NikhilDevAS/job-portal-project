@@ -1,4 +1,5 @@
 import '@/styles/globals.css';
+import ContextProvider from '@/components/context/context';
 
 import { Kanit } from 'next/font/google';
 
@@ -10,7 +11,9 @@ const kanit = Kanit({
 export default function App({ Component, pageProps }) {
   return (
     <main className={kanit.className}>
-      <Component {...pageProps} />
+      <ContextProvider>
+        <Component {...pageProps} />
+      </ContextProvider>
     </main>
   );
 }

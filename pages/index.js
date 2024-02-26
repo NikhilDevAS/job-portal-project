@@ -4,9 +4,25 @@ import { GrDocumentUser } from 'react-icons/gr';
 import { FaUserPlus } from 'react-icons/fa';
 import { BsCheck2Circle } from 'react-icons/bs';
 import { useRouter } from 'next/router';
+import { useForm } from 'react-hook-form';
 
 export default function Home() {
   const router = useRouter();
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    if (data.keyword) {
+      router.push(`/jobs/${data.keyword}`);
+    } else {
+      router.push('/jobs/result');
+    }
+  };
   return (
     <Layout>
       {/* Carousel  */}
@@ -26,7 +42,7 @@ export default function Home() {
 
             <div className="w-full bg-white px-5 py-5 mt-5 rounded-sm shadow-md">
               <form
-                action=""
+                onSubmit={handleSubmit(onSubmit)}
                 className="flex justify-between items-center gap-5"
               >
                 <div className="flex items-center w-full text-xl">
@@ -35,9 +51,13 @@ export default function Home() {
                     type="text"
                     className="w-full py-3 border-0 outline-none"
                     placeholder="Job Title, Keywords"
+                    {...register('keyword')}
                   />
                 </div>
-                <button className="text-white bg-blue-500 py-2 px-5 w-32 rounded-md shadow-md">
+                <button
+                  type="submit"
+                  className="text-white bg-blue-500 py-2 px-5 w-32 rounded-md shadow-md"
+                >
                   Find Job
                 </button>
               </form>
@@ -154,35 +174,59 @@ export default function Home() {
             even slightly believable.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mt-10 w-full">
-            <div className="bg-white hover:bg-blue-500 hover:text-white duration-300 cursor-pointer rounded-lg p-5 shadow-md flex flex-col items-center justify-center">
+            <div
+              className="bg-white hover:bg-blue-500 hover:text-white duration-300 cursor-pointer rounded-lg p-5 shadow-md flex flex-col items-center justify-center"
+              onClick={() => router.push('/jobs/UI-UX Designer')}
+            >
               <p className="font-bold text-2xl mb-5">UI/UX Designer</p>
               <p>100+ New Jobs</p>
             </div>
-            <div className="bg-white hover:bg-blue-500 hover:text-white duration-300 cursor-pointer rounded-lg p-5 shadow-md flex flex-col items-center justify-center">
+            <div
+              className="bg-white hover:bg-blue-500 hover:text-white duration-300 cursor-pointer rounded-lg p-5 shadow-md flex flex-col items-center justify-center"
+              onClick={() => router.push('/jobs/web Designer')}
+            >
               <p className="font-bold text-2xl mb-5">Web Designer</p>
               <p>100+ New Jobs</p>
             </div>
-            <div className="bg-white hover:bg-blue-500 hover:text-white duration-300 cursor-pointer rounded-lg p-5 shadow-md flex flex-col items-center justify-center">
+            <div
+              className="bg-white hover:bg-blue-500 hover:text-white duration-300 cursor-pointer rounded-lg p-5 shadow-md flex flex-col items-center justify-center"
+              onClick={() => router.push('/jobs/Javascript Developer')}
+            >
               <p className="font-bold text-2xl mb-5">Javascript Developer</p>
               <p>100+ New Jobs</p>
             </div>
-            <div className="bg-white hover:bg-blue-500 hover:text-white duration-300 cursor-pointer rounded-lg p-5 shadow-md flex flex-col items-center justify-center">
+            <div
+              className="bg-white hover:bg-blue-500 hover:text-white duration-300 cursor-pointer rounded-lg p-5 shadow-md flex flex-col items-center justify-center"
+              onClick={() => router.push('/jobs/animation')}
+            >
               <p className="font-bold text-2xl mb-5">Animation</p>
               <p>100+ New Jobs</p>
             </div>
-            <div className="bg-white hover:bg-blue-500 hover:text-white duration-300 cursor-pointer rounded-lg p-5 shadow-md flex flex-col items-center justify-center">
+            <div
+              className="bg-white hover:bg-blue-500 hover:text-white duration-300 cursor-pointer rounded-lg p-5 shadow-md flex flex-col items-center justify-center"
+              onClick={() => router.push('/jobs/graphic-designer')}
+            >
               <p className="font-bold text-2xl mb-5">Graphic Designer</p>
               <p>100+ New Jobs</p>
             </div>
-            <div className="bg-white hover:bg-blue-500 hover:text-white duration-300 cursor-pointer rounded-lg p-5 shadow-md flex flex-col items-center justify-center">
+            <div
+              className="bg-white hover:bg-blue-500 hover:text-white duration-300 cursor-pointer rounded-lg p-5 shadow-md flex flex-col items-center justify-center"
+              onClick={() => router.push('/jobs/web developer')}
+            >
               <p className="font-bold text-2xl mb-5">Web Developer</p>
               <p>100+ New Jobs</p>
             </div>
-            <div className="bg-white hover:bg-blue-500 hover:text-white duration-300 cursor-pointer rounded-lg p-5 shadow-md flex flex-col items-center justify-center">
+            <div
+              className="bg-white hover:bg-blue-500 hover:text-white duration-300 cursor-pointer rounded-lg p-5 shadow-md flex flex-col items-center justify-center"
+              onClick={() => router.push('/jobs/photoshop')}
+            >
               <p className="font-bold text-2xl mb-5">Photoshop</p>
               <p>100+ New Jobs</p>
             </div>
-            <div className="bg-white hover:bg-blue-500 hover:text-white duration-300 cursor-pointer rounded-lg p-5 shadow-md flex flex-col items-center justify-center">
+            <div
+              className="bg-white hover:bg-blue-500 hover:text-white duration-300 cursor-pointer rounded-lg p-5 shadow-md flex flex-col items-center justify-center"
+              onClick={() => router.push('/jobs/Frontend Developer')}
+            >
               <p className="font-bold text-2xl mb-5">Frontend Developer</p>
               <p>100+ New Jobs</p>
             </div>

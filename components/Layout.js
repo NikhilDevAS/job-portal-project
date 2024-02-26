@@ -1,8 +1,11 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useContext } from 'react';
 import { PiUserFocusFill } from 'react-icons/pi';
+import { Context } from './context/context';
 
 export default function Layout({ children, ...props }) {
+  const { user, logout, admin } = useContext(Context);
   const router = useRouter();
   return (
     <>
@@ -27,24 +30,44 @@ export default function Layout({ children, ...props }) {
             <Link href="/about">About Us</Link>
           </li>
           <li>
-            <Link href="/jobs">Browse JObs</Link>
+            <Link href="/jobs/result">Browse JObs</Link>
           </li>
           <li>
             <Link href="/contact-us">Contact Us</Link>
           </li>
-          <li>
-            <button className="uppercase" onClick={() => router.push('/login')}>
-              Login
-            </button>
-          </li>
-          <li>
-            <button
-              className="uppercase"
-              onClick={() => router.push('/signup')}
-            >
-              Register
-            </button>
-          </li>
+          {user ? (
+            <>
+              <li>
+                <button className="uppercase" onClick={() => router.push('/')}>
+                  {user.name}
+                </button>
+              </li>
+              <li>
+                <button className="uppercase" onClick={() => logout()}>
+                  Logout
+                </button>
+              </li>
+            </>
+          ) : (
+            <>
+              <li>
+                <button
+                  className="uppercase"
+                  onClick={() => router.push('/login')}
+                >
+                  Login
+                </button>
+              </li>
+              <li>
+                <button
+                  className="uppercase"
+                  onClick={() => router.push('/signup')}
+                >
+                  Register
+                </button>
+              </li>
+            </>
+          )}
         </ul>
       </nav>
       <div>{children}</div>
@@ -109,7 +132,9 @@ export default function Layout({ children, ...props }) {
           <div className="text-center mb-10">
             <p>
               Copyright @ 2024 | Web Design by{' '}
-              <span className="text-cyan-400 font-bold">Nikhil Dev A S</span>
+              <Link href="/admin-6429">
+                <span className="text-cyan-400 font-bold">Nikhil Dev A S</span>
+              </Link>
             </p>
           </div>
         </div>
