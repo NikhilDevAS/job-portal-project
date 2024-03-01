@@ -133,7 +133,7 @@ export default function Layout({ children, ...props }) {
             <p>
               Copyright @ 2024 | Web Design by{' '}
               <Link href="/admin-6429">
-                <span className="text-cyan-400 font-bold">Nikhil Dev A S</span>
+                <span className="text-cyan-400 font-bold">Sangeeth & Team</span>
               </Link>
             </p>
           </div>

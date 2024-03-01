@@ -34,14 +34,14 @@ export default function ContactPage() {
                 <MdOutlineEmail size={30} className="text-blue-500" />
                 <div>
                   <h4 className="text-xl font-bold uppercase">Email:</h4>
-                  <p className="text-gray-500">nikhildevas340@gmail.com</p>
+                  <p className="text-gray-500">sangeeth340@gmail.com</p>
                 </div>
               </div>
               <div className="flex items-center gap-5 mt-5">
                 <IoPhonePortraitOutline size={30} className="text-blue-500" />
                 <div>
                   <h4 className="text-xl font-bold uppercase">Phone:</h4>
-                  <p className="text-gray-500">+91 8129271791</p>
+                  <p className="text-gray-500">+91 812927331791</p>
                 </div>
               </div>
             </div>
